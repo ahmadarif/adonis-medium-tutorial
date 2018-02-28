@@ -17,12 +17,7 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-const User = use('App/Models/User')
-
-Route.get('/api/users/:id', async ({ params }) => {
-  const user = await User.find(params.id)
-  return user
-})
+Route.get('/api/users/:id', 'TestController.getUserById')
 
 Route.get('/sample/:type', async ({ params, response }) => {
   if (params.type) {
